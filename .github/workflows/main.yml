@@ -1,22 +1,16 @@
 name: Pr Validtion workflow
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: PR title ${{ github.event.pull_request.title }} verifcation
 on:
-  workflow_dispatch:
-    inputs:
-      ticketPrefix:
-        type: string
-        description: Ticket Prefix
-        default: "ABC"
   pull_request:
    types: [opened, synchronize]
 jobs:
   pr-validation:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "Validation PR Title.."
       - uses: prilior/typescript-action@main
         with:
-          ticketPrefix: ${{ github.event.inputs.ticketPrefix }}
+          ticketPrefix: "ABC"
           prTitle: "${{ github.event.pull_request.title }}"
               
 
