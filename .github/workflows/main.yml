@@ -1,0 +1,24 @@
+name: Pr Validtion workflow
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  workflow_dispatch:
+    inputs:
+      ticketPrefix:
+        type: string
+        description: Who to greet
+        default: "ABC"
+jobs:
+  pr-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - uses: prilior/typescript-action@main
+        with:
+          ticketPrefix: ${{ github.event.inputs.ticketPrefix }}
+          prTitle: "ABChello"
+              
+              
+
+            
+      
+    
